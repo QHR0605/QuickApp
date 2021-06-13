@@ -44,7 +44,7 @@
                 android:textSize="18sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-            <com.example.quickapp.CircleProgressView
+            <com.example.quickapp.ui.health_state.CircleProgressView
                 app:layout_constraintTop_toBottomOf="@id/title1"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_height="0dp"
