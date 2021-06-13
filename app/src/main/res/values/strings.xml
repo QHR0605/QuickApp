@@ -7,4 +7,11 @@
     <string name="personal_center_machines">我的设备</string>
     <string name="personal_center_history">提交记录</string>
     <string name="personal_center_aboutUs">关于我们</string>
+    <string name="personal_center_edit_message">编辑资料</string>
+    <string name="personal_center_edit_save">保存</string>
+    <string name="personal_center_edit_username">用户名</string>
+    <string name="personal_center_edit_sex">性别</string>
+    <string name="personal_center_edit_age">年龄</string>
+    <string name="personal_center_edit_height">身高</string>
+    <string name="personal_center_edit_weight">体重</string>
 </resources>
