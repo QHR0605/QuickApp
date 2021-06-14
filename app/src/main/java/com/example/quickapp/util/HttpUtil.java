@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class HttpUtil {
-    //    public static String baseUrl = "http://119.39.26.219:8096/";
+//        public static String baseUrl = "http://10.0.2.2:8080/";
     public static String baseUrl = "http://jayice.cn.utools.club/";
 
     public static String ip = "192.168.43.214";

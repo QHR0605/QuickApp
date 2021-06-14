@@ -51,25 +51,25 @@
                 android:layout_height="0dp"
                 android:layout_width="0dp"
                 android:id="@+id/circle_progress"
-                app:layout_constraintHeight_percent="0.3"
+                app:layout_constraintHeight_percent="0.22"
                 app:layout_constraintWidth_percent="0.35"
-                app:roundWidth="15dp"
+                app:roundWidth="10dp"
                 app:innerCicleColor="#fff"
                 app:outCicleColor="#9ACD32"
                 app:progressTextColor="#9ACD32"
-
                 />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintHeight_percent="0.3"
+                app:layout_constraintHeight_percent="0.27"
                 app:layout_constraintWidth_percent="0.65"
                 app:layout_constraintLeft_toRightOf="@id/circle_progress"
                 app:layout_constraintTop_toBottomOf="@id/title1"
                 android:id="@+id/content1"
                 android:textColor="#9ACD32"
                 android:textSize="18sp"
-                android:gravity="center"/>
+                android:gravity="center"
+               />
             <TextView
                 android:id="@+id/title2"
                 android:layout_width="match_parent"
@@ -120,7 +120,11 @@
                         android:textSize="18sp"
                         android:minLines="3"
                         android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"/>
+                        android:layout_marginRight="3dp"
+                        android:paddingLeft="15dp"
+                        android:paddingTop="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingBottom="15dp"/>
                     <TextView
                         android:id="@+id/content2_2"
                         android:layout_width="match_parent"
@@ -161,7 +165,17 @@
                         android:textSize="18sp"
                         android:minLines="3"
                         android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"/>
+                        android:layout_marginRight="3dp"
+                        android:paddingLeft="15dp"
+                        android:paddingTop="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingBottom="15dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#fff"
+                        android:textColor="#000"
+                        android:textSize="10sp"/>
                 </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

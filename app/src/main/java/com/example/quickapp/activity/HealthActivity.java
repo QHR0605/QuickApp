@@ -1,7 +1,8 @@
-package com.example.quickapp.ui.health_state;
+package com.example.quickapp.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -9,8 +10,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.quickapp.R;
-import com.example.quickapp.ui.machine.MachineListFragment;
-import com.example.quickapp.ui.personal_center.PersonalCenterFragment;
+import com.example.quickapp.ui.health_state.CircleProgressView;
+import com.example.quickapp.ui.health_state.HealthBean;
 import com.example.quickapp.util.PostJSON;
 import com.example.quickapp.util.PostUtil;
 import com.google.gson.Gson;
@@ -25,13 +26,23 @@ public class HealthActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_healthy);
-
+        TextView button2 = findViewById(R.id.question);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                intent = new Intent(HealthActivity.this, QuestionActivity.class);
+                startActivity(intent);
+            }
+        });
+        final CircleProgressView circleProgressView = (CircleProgressView) findViewById(R.id.circle_progress);
+        circleProgressView.setCurrentProgress(80);
         TextView button3 = findViewById(R.id.equipment);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent;
-                intent = new Intent(HealthActivity.this, MachineListFragment.class);
+                intent = new Intent(HealthActivity.this, MachineListActivity.class);
                 startActivity(intent);
             }
         });
@@ -41,7 +52,7 @@ public class HealthActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent;
-                intent = new Intent(HealthActivity.this, PersonalCenterFragment.class);
+                intent = new Intent(HealthActivity.this, PersonalCenterActivity.class);
                 startActivity(intent);
             }
         });
@@ -71,9 +82,9 @@ public class HealthActivity extends AppCompatActivity {
                     view1.setText("   健康状况\n【健康】");
                 }
                 TextView view2 = findViewById(R.id.content2_1);
-                view2.setText("   " + symptom);
+                view2.setText(symptom);
                 TextView view3 = findViewById(R.id.content3);
-                view3.setText("   " + advice);
+                view3.setText(advice);
             }
         }
     };
@@ -88,12 +99,11 @@ public class HealthActivity extends AppCompatActivity {
 //                SharedPreferences preferences;
 //                preferences = getSharedPreferences("user", 0);
 //                String Id = preferences.getString("id","");
-                response = PostJSON.sendPost("http://10.0.2.2:8080/login","{" + "\"" + "username" + "\"" + ":" + "\"" + "zzq4" + "\""+"," +
-                        "\"" + "password" + "\"" + ":" + "\"" + "123456" + "\""+"}");
-                LoginBean loginBean = new Gson().fromJson(response, LoginBean.class) ;
-                String token = loginBean.getToken();
+                SharedPreferences preferences;
+                preferences = getSharedPreferences("user", 0);
+                String token = preferences.getString("token","");
                 System.out.println("TOKEN="+token);
-                response = PostUtil.sendPost("http://10.0.2.2:8080/health","{" + "\"" + "token" + "\"" + ":" + "\"" + token + "\""+"}");
+                response = PostUtil.sendPost("http://jayice.cn.utools.club/health","{" + "\"" + "token" + "\"" + ":" + "\"" + token + "\""+"}");
                 //获取健康信息
 //                response = PostUtil.sendPost();
                 //根据response更新view
