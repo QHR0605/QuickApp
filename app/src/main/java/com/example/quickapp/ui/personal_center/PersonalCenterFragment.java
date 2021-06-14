@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.example.quickapp.R;
+import com.example.quickapp.activity.MachineDataActivity;
 import com.example.quickapp.activity.MachineListActivity;
 import com.example.quickapp.activity.PersonalMessageActivity;
 import com.example.quickapp.entity.MachineData;
@@ -53,6 +54,7 @@ public class PersonalCenterFragment extends Fragment {
         user_machine.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), MachineListActivity.class);
             MachineData machineData = new MachineData();
+            machineData.setType(2);
             machineData.setData(36.1);
             machineData.setTimestamp(new Timestamp(System.currentTimeMillis()));
             intent.putExtra("data", machineData);
