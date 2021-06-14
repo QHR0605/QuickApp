@@ -109,7 +109,8 @@ public class LoginActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 //                System.out.println(answer[0]);
-                if (answer[0]!="fail"){
+                if (!answer[0].equals("fail")){
+                    System.out.println(answer[0]);
                     Bundle bundle=new Bundle();
                     bundle.putString("token",answer[0]);
                     System.out.println("token:"+answer[0]);
